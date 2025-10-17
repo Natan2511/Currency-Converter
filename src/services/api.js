@@ -1,6 +1,9 @@
 export class CurrencyAPI {
   constructor() {
-    this.baseURL = "http://localhost:8000";
+    // Определяем URL API в зависимости от окружения
+    this.baseURL = import.meta.env.PROD 
+      ? "https://test-domain.su/Currency-Converter/api"
+      : "http://localhost:8000";
     this.externalAPI = "https://api.fxratesapi.com";
     this.cache = new Map();
     this.cacheTimeout = 5 * 60 * 1000; // 5 минут
